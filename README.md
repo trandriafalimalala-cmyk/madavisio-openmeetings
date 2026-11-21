@@ -201,11 +201,10 @@ cat branding/modern_theme.css | sudo docker exec -i om-app tee -a /opt/openmeeti
 
 ## 📸 Captures d'écran & Démonstration
 
-| Portail de connexion (Thème Sombre & Logo) | Gestion des rôles et annuaire LDAP |
-| :---: | :---: |
-| ![Connexion MadaVisio L2](docs/images/07_custom_branding.png) | ![Gestion des rôles](docs/images/08_roles_users.png) |
+L'ensemble des preuves visuelles chronologiques et commentées (déploiement Docker, accès HTTPS, annuaire OpenLDAP, personnalisation thème sombre MadaVisio L2 et gestion des accès) est regroupé dans le dossier PDF ci-dessous :
 
----
+- 📄 **[Dossier complet des captures d'écran & démonstration commentées (PDF — 28 pages)](docs/captures_demonstration_madavisio.pdf)**
+- 📘 **[Fiche de veille technologique — Apache OpenMeetings (PDF)](docs/fiche_veille_openmeetings.pdf)
 
 ## 📚 Livrables académiques
 
