@@ -1,0 +1,154 @@
+/* === THEME SOMBRE INTEGRAL (FULL DARK MODE) - PROJET P01 === */
+:root {
+  --dark-bg-base: #0b0f19;       /* Fond principal très sombre */
+  --dark-bg-surface: #111827;    /* Fond des cartes et panneaux */
+  --dark-bg-elevated: #1f2937;   /* Survol, en-têtes et modales */
+  --dark-border: #374151;        /* Bordures discrètes */
+  --text-primary: #f9fafb;       /* Texte principal blanc cassé */
+  --text-secondary: #9ca3af;     /* Texte secondaire gris clair */
+  --brand-accent: #0ea5e9;       /* Bleu cyan moderne */
+  --brand-accent-hover: #0284c7;
+  --radius-md: 10px;
+  --shadow-dark: 0 8px 24px rgba(0, 0, 0, 0.45);
+}
+
+/* 1. Fond global, typographie et barres de défilement */
+html, body, .main-container, .main, #contents, .dashboard, .profile-panel {
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif !important;
+  background-color: var(--dark-bg-base) !important;
+  color: var(--text-primary) !important;
+}
+::-webkit-scrollbar { width: 8px; height: 8px; }
+::-webkit-scrollbar-track { background: var(--dark-bg-base); }
+::-webkit-scrollbar-thumb { background: #374151; border-radius: 4px; }
+
+/* 2. En-tête supérieur (Header) et Logo */
+#header {
+  background: linear-gradient(90deg, #090d16 0%, #111827 100%) !important;
+  color: var(--text-primary) !important;
+  border-bottom: 1px solid var(--dark-border) !important;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.5) !important;
+  font-size: 22px !important;
+  letter-spacing: -0.02em !important;
+}
+#header .logo {
+  background-image: url(images/logo.png) !important;
+  background-size: contain !important;
+  background-position: center !important;
+  width: 90px !important;
+}
+#header a, #topLinks a, #topLinks span {
+  color: var(--text-secondary) !important;
+  font-size: 13px !important;
+  border-color: var(--dark-border) !important;
+}
+#header a:hover, #topLinks a:hover {
+  color: #38bdf8 !important;
+}
+
+/* 3. Barre de navigation principale et menus déroulants */
+#menu .navbar, .dropdown-menu {
+  background-color: var(--dark-bg-surface) !important;
+  border-bottom: 1px solid var(--dark-border) !important;
+  border-color: var(--dark-border) !important;
+}
+#menu .nav-link, .dropdown-item {
+  color: var(--text-primary) !important;
+  font-weight: 500 !important;
+  border-radius: 6px !important;
+  transition: all 0.15s ease !important;
+}
+#menu .nav-link:hover, .dropdown-item:hover {
+  background-color: var(--dark-bg-elevated) !important;
+  color: #38bdf8 !important;
+}
+
+/* 4. Cartes du Dashboard, Connexion, Modales et Onglets */
+.card, .card-body, .dragbox, .dragbox-content, .signin, .message, .tableWrapper,
+.ui-dialog, .ui-widget-content, .modal-content, .tab-content, .main.privacy {
+  background-color: var(--dark-bg-surface) !important;
+  color: var(--text-primary) !important;
+  border: 1px solid var(--dark-border) !important;
+  border-radius: var(--radius-md) !important;
+  box-shadow: var(--shadow-dark) !important;
+}
+.dragbox-header, .card-header, .ui-dialog-titlebar, .ui-widget-header, .modal-header, .modal-footer {
+  background-color: var(--dark-bg-elevated) !important;
+  color: var(--text-primary) !important;
+  font-weight: 600 !important;
+  border-color: var(--dark-border) !important;
+}
+.signin .or-seperator i {
+  background-color: var(--dark-bg-surface) !important;
+  color: var(--text-secondary) !important;
+}
+.nav-tabs { border-bottom-color: var(--dark-border) !important; }
+.nav-tabs .nav-link { color: var(--text-secondary) !important; }
+.nav-tabs .nav-link.active {
+  background-color: var(--dark-bg-elevated) !important;
+  color: #38bdf8 !important;
+  border-color: var(--dark-border) !important;
+}
+
+/* 5. Boutons modernisés */
+.btn-primary, .btn-outline-primary {
+  background-color: var(--brand-accent) !important;
+  border-color: var(--brand-accent) !important;
+  color: #ffffff !important;
+  border-radius: 8px !important;
+  font-weight: 500 !important;
+  padding: 6px 14px !important;
+  box-shadow: 0 2px 8px rgba(14, 165, 233, 0.3) !important;
+  transition: all 0.2s ease !important;
+}
+.btn-primary:hover, .btn-outline-primary:hover {
+  background-color: var(--brand-accent-hover) !important;
+  transform: translateY(-1px) !important;
+}
+.btn-secondary, .btn-outline-secondary, .btn-light {
+  background-color: var(--dark-bg-elevated) !important;
+  border-color: var(--dark-border) !important;
+  color: var(--text-primary) !important;
+  border-radius: 8px !important;
+}
+
+/* 6. Champs de formulaires, Listes et Tableaux d'administration */
+input[type="text"], input[type="password"], input[type="email"], select, textarea,
+.form-control, .form-select, .select2-selection {
+  background-color: var(--dark-bg-base) !important;
+  color: var(--text-primary) !important;
+  border: 1px solid var(--dark-border) !important;
+  border-radius: 8px !important;
+  padding: 6px 10px !important;
+}
+input:focus, select:focus, textarea:focus, .form-control:focus {
+  border-color: #38bdf8 !important;
+  box-shadow: 0 0 0 3px rgba(56, 189, 248, 0.2) !important;
+  outline: none !important;
+}
+.list-table thead, .list-table th, .table th {
+  background-color: var(--dark-bg-elevated) !important;
+  color: var(--text-secondary) !important;
+  border-color: var(--dark-border) !important;
+  font-weight: 600 !important;
+  text-transform: uppercase !important;
+  font-size: 11px !important;
+}
+.list-table tbody, .list-table tr, .list-table td, .table td, .fht-tbody {
+  background-color: var(--dark-bg-surface) !important;
+  color: var(--text-primary) !important;
+  border-color: var(--dark-border) !important;
+}
+.list-table tbody tr:hover {
+  background-color: var(--dark-bg-elevated) !important;
+}
+
+/* 7. Salle de visioconférence et Chat */
+.main.room, .room-block .sidebar, .room-block .menu, #chatPanel, #chat {
+  background-color: var(--dark-bg-surface) !important;
+  color: var(--text-primary) !important;
+  border-color: var(--dark-border) !important;
+}
+.user-list .user.entry.current {
+  background-color: var(--dark-bg-elevated) !important;
+}

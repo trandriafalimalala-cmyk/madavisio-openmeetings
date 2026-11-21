@@ -1,0 +1,72 @@
+services:
+  db:
+    image: mariadb:10.11
+    container_name: om-mariadb
+    restart: unless-stopped
+    environment:
+      MYSQL_ROOT_PASSWORD: ${MYSQL_ROOT_PASSWORD}
+      MYSQL_DATABASE: openmeetings
+      MYSQL_USER: ${MYSQL_USER}
+      MYSQL_PASSWORD: ${MYSQL_PASSWORD}
+    volumes:
+      - ./db_data:/var/lib/mysql
+    networks:
+      - om-net
+
+  kms:
+    image: kurento/kurento-media-server:7.0.0
+    container_name: om-kurento
+    restart: unless-stopped
+    environment:
+      KMS_MIN_PORT: 40000
+      KMS_MAX_PORT: 40100
+    ports:
+      - "8888:8888"
+      - "40000-40100:40000-40100/udp"
+    networks:
+      - om-net
+
+  openldap:
+    image: osixia/openldap:1.5.0
+    container_name: om-ldap
+    restart: unless-stopped
+    environment:
+      LDAP_ORGANISATION: "Entreprise L2 RSI"
+      LDAP_DOMAIN: "entreprise.mg"
+      LDAP_ADMIN_PASSWORD: ${LDAP_ADMIN_PASSWORD}
+    ports:
+      - "389:389"
+      - "636:636"
+    volumes:
+      - ./ldap_data/var:/var/lib/ldap
+      - ./ldap_data/etc:/etc/ldap/slapd.d
+    networks:
+      - om-net
+
+  openmeetings:
+    image: apache/openmeetings:min-7.2.0
+    container_name: om-app
+    restart: unless-stopped
+    depends_on:
+      - db
+      - kms
+      - openldap
+    environment:
+      OM_DB_TYPE: mysql
+      OM_DB_HOST: db
+      OM_DB_PORT: 3306
+      OM_DB_NAME: openmeetings
+      OM_DB_USER: ${MYSQL_USER}
+      OM_DB_PASS: ${MYSQL_PASSWORD}
+      OM_KURENTO_WS_URL: ws://kms:8888/kurento
+    ports:
+      - "5080:5080"
+      - "5443:5443"
+    volumes:
+      - ./om_data:/opt/omdata
+    networks:
+      - om-net
+
+networks:
+  om-net:
+    driver: bridge

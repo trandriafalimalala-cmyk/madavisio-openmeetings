@@ -1,0 +1,21 @@
+# Secrets, environnement et certificats privés
+.env
+*.bak
+om_ldap.cfg
+structure_entreprise.ldif
+certs/*.key
+certs/*.p12
+certs/*.jks
+
+# Volumes de données persistants (sensibles et lourds)
+om_data/
+data/
+db_data/
+omdata/
+ldap_data/
+
+# Fichiers temporaires et vidéos lourdes
+*.mp4
+*.mkv
+*.log
+.DS_Store
