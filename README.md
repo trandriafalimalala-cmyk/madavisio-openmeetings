@@ -108,28 +108,17 @@ L'infrastructure repose sur **4 conteneurs interconnectés** au sein d'un résea
 
 ```text
 projet-openmeetings/
-├── docker-compose.yml              # Orchestration des 4 conteneurs (om-app, om-kms, om-db, om-ldap)
-├── .env.example                    # Modèle des variables d'environnement (mots de passe, domaines)
-├── .gitignore                      # Exclusion des secrets (certs/*.key), données binaires et logs
-├── README.md                       # Documentation principale du projet
-├── branding/                       # Ressources d'identité visuelle (MadaVisio L2)
-│   ├── logo_original.png           # Logo source haute définition
-│   ├── logo_header.png             # Logo redimensionné pour la barre d'en-tête (80x45 px)
-│   ├── logo.svg                    # Encapsulation vectorielle SVG du logo
-│   └── modern_theme.css            # Feuille de style complète (Full Dark Mode Bootstrap 5)
-├── ldap/                           # Configuration de l'annuaire OpenLDAP
-│   ├── om_ldap.cfg                 # Connecteur LDAP d'OpenMeetings (SIMPLEBIND)
-│   └── bootstrap_users.ldif        # Structure d'importation des unités et utilisateurs (rakoto, rasoa)
-└── docs/                           # Documentation académique et preuves visuelles
-    ├── VEILLE_TECHNOLOGIQUE.md     # Source Markdown de la fiche de veille technologique
-    ├── fiche_veille_openmeetings.pdf # Livrable PDF comparatif (OpenMeetings vs Jitsi vs BBB)
-    └── images/                     # Captures d'écran chronologiques du déploiement
-        ├── 01_docker_ps.png
-        ├── 02_https_login.png
-        ├── 03_ldap_config.png
-        ├── 07_custom_branding.png
-        ├── 08_roles_users.png
-        └── ...
+├── .gitignore                                 # Exclusion des secrets (.env, *.key) et volumes de données
+├── docker-compose.yml                         # Orchestration des 4 services (OpenMeetings, MariaDB, Kurento, OpenLDAP)
+├── README.md                                  # Documentation technique complète et guide de déploiement
+├── branding/                                  # Identité visuelle MadaVisio L2
+│   ├── logo.svg                               # Logo vectoriel personnalisé
+│   └── modern_theme.css                       # Feuille de style du thème sombre
+├── certs/                                     # Certificats SSL/TLS (om.crt versionné, om.key ignoré)
+│   └── om.crt
+└── docs/                                      # Livrables documentaires du projet P01
+    ├── captures_demonstration_madavisio.pdf   # Dossier complet des 27 captures annotées (28 pages)
+    └── fiche_veille_openmeetings.pdf          # Fiche de veille technologique comparative
 ```
 
 ---
